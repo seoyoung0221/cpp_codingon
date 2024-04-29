@@ -1,5 +1,5 @@
-// 240429
-// vector Áßº¹»èÁ¦
+ï»¿// 240429
+// vector ì¤‘ë³µì‚­ì œ
 #include <iostream>
 #include <vector>
 #include <algorithm>
