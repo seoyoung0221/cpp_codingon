@@ -7,25 +7,25 @@ using namespace std;
 
 int main()
 {
-	int input1, input2;
+	int row, col;
 	
 	//행과 열 입력 받기
 	cout << "행과 열의 수를 입력하세요 : ";
-	cin >> input1 >> input2;
+	cin >> row >> col;
 
 	//2차원 배열 선언
-	int** arr = new int* [input1];
+	int** arr = new int* [row];
 
-	for (int i = 0; i < input1; i++)
+	for (int i = 0; i < row; i++)
 	{
-		arr[i] = new int[input2];
+		arr[i] = new int[col];
 	}
 
 	//행렬 원소 입력 받기
 	cout << "행렬 원소를 입력하세요 : ";
-	for (int i = 0; i < input1; i++)
+	for (int i = 0; i < row; i++)
 	{
-		for (int j = 0; j < input2; j++)
+		for (int j = 0; j < col; j++)
 		{
 			cin >> arr[i][j];
 		}
@@ -35,9 +35,9 @@ int main()
 
 	//행렬 보여주기
 	cout << "현재 행렬 \n";
-	for (int i = 0; i < input1; i++)
+	for (int i = 0; i < row; i++)
 	{
-		for (int j = 0; j < input2; j++)
+		for (int j = 0; j < col; j++)
 		{
 			cout << arr[i][j] << " ";
 		}
@@ -46,59 +46,59 @@ int main()
 
 	cout << "\n"; 
 
-	//sum1 : 행의 합을 저장해놓은 행렬
-	//sum2 : 열의 합을 저장해놓은 행렬
-	int* sum1 = new int[input1];
-	int* sum2 = new int[input2];
+	//rowSum : 행의 합을 저장해놓은 행렬
+	//colSum : 열의 합을 저장해놓은 행렬
+	int* rowSum = new int[row];
+	int* colSum = new int[col];
 
 	//행의 합 계산
-	for (int i = 0; i < input1; i++)
+	for (int i = 0; i < row; i++)
 	{
-		sum1[i] = 0;
+		rowSum[i] = 0;
 	}
 
-	for (int i = 0; i < input2; i++)
+	for (int i = 0; i < col; i++)
 	{
-		sum2[i] = 0;
+		colSum[i] = 0;
 	}
 	
 	//열의 합 계산
-	for (int i = 0; i < input1; i++)
+	for (int i = 0; i < row; i++)
 	{
-		for (int j = 0; j < input2; j++)
+		for (int j = 0; j < col; j++)
 		{
-			sum1[i] += arr[i][j];
+			rowSum[i] += arr[i][j];
 		}
 	}
 
-	for (int i = 0; i < input2; i++)
+	for (int i = 0; i < col; i++)
 	{
-		for (int j = 0; j < input1; j++)
+		for (int j = 0; j < row; j++)
 		{
-			sum2[i] += arr[j][i];
+			colSum[i] += arr[j][i];
 		}
 	}
 
 	// 행의 합, 열의 합 출력
 	cout << "각 행의 합 \n";
 
-	for (int i = 0; i < input1; i++)
+	for (int i = 0; i < row; i++)
 	{
-		cout << i + 1 << "행의 합 : " << sum1[i] << "\n";
+		cout << i + 1 << "행의 합 : " << rowSum[i] << "\n";
 	}
 	cout << "\n";
 	cout << "각 열의 합 \n";
 
-	for (int i = 0; i < input2; i++)
+	for (int i = 0; i < col; i++)
 	{
-		cout << i + 1 << "열의 합 : " << sum2[i] << "\n";
+		cout << i + 1 << "열의 합 : " << colSum[i] << "\n";
 	}
 
 	//동적 할당 해제
-	delete[] sum1;
-	delete[] sum2;
+	delete[] rowSum;
+	delete[] colSum;
 	
-	for (int i = 0; i < input2; i++)
+	for (int i = 0; i < col; i++)
 	{
 		delete[] arr[i];
 	}
