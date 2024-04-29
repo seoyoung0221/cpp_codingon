@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="prac7.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="prac8.cpp">
+    <ClCompile Include="240430.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
