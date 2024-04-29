@@ -45,7 +45,7 @@ int main() {
 
 	// {6, 7} 추가 및 출력
 	list<int> addList1 = { 6,7 };
-	myList.merge(addList1);
+	myList.splice(myList.end(), addList1);
 
 	cout << "리스트에 {6, 7}추가 \n";
 
