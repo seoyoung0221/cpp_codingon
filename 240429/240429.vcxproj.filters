@@ -21,5 +21,8 @@
     <ClCompile Include="prac8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="prac8_2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
