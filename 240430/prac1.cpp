@@ -15,7 +15,7 @@ int main()
 	cout << "s의 길이 : " << s.length() << "\n";
 
 	//100번째 문자 출력
-	cout << "100번째 문자 : " << s[100] << "\n";
+	cout << "100번째 문자 : " << s[99] << "\n";
 
 	//two라는 문자가 처음 나오는 index 출력
 	cout << "two가 처음 나온 index : " << s.find("two") << "\n";
