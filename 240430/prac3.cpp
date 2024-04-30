@@ -1,6 +1,5 @@
 //240430
-//
-
+//string
 #include <iostream>
 #include <string>
 
