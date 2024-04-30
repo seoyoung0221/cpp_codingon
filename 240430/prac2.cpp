@@ -6,21 +6,21 @@
 
 using namespace std;
 
-int test_number(string);
+int check_num(string);
 
 
 int main() {
 	string sentence1, sentence2;
 
-	int test = 0;
+	int test = 0; 
 
 	cout << "두 문장을 입력해주세요.\n";
 
 	while (test == 0) {
 		getline(cin, sentence1);
 		getline(cin, sentence2);
-			
-		if (test_number(sentence1) == 1 && test_number(sentence2) == 1)
+		
+		if (check_num(sentence1) == 1 && check_num(sentence2) == 1)
 		{
 			cout << "둘 다 숫자임 \n";
 			test = 1;
@@ -39,6 +39,8 @@ int main() {
 
 	//두 숫자 합 출력
 	int sum = 0;
+
+	// 이어 붙인 부분 제거
 	int find_sentence2 = sentence1.find(sentence2);
 	sentence1.resize(find_sentence2);
 
@@ -50,7 +52,7 @@ int main() {
 }
 
 
-int test_number(string str) {
+int check_num(string str) {
 	//숫자면 양수, 문자면 0
 	int is_num= 0;
 
