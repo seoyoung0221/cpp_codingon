@@ -68,5 +68,13 @@ int main() {
 
 	cout << "가장 빠른 생일은 " << info[fast_birthday_index][2] << "입니다. \n";
 
+	//동적 배열 해제
+	for (int i = 0; i < student_num; i++)
+	{
+		delete[] info[i];
+	}
+
+	delete[] info;
+
 	return 0;
 }
