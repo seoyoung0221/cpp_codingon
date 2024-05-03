@@ -20,9 +20,9 @@ int main()
 
 	InputStudentInfo(student, student_num, 3);
 
-	float avg = CalAgeAvg(student, 2, 3);
+	float avg = CalAgeAvg(student, student_num, 3);
 
-	cout << avg;
+	cout <<"나이 평균은 " << avg << "입니다.";
 
 	return 0;
 }
