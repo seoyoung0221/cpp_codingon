@@ -5,6 +5,7 @@
 #include "MyFunctions.h"
 
 using namespace std;
+using namespace Calculate;
 
 int main() {
 	float student_num;
@@ -23,15 +24,16 @@ int main() {
 	//학생 정보 입력
 	InputStudentInfo(info, student_num, 3);
 
-	cout << "원하는 옵션을 선택하세요. \n";
-	cout << "1. 학생 정보 출력 2. 평균 나이 계산 3. 가장 빠른 생일 계산 4. 프로그램 종료\n";
-	cin >> option;
-
+	bool exit = false;
 	float age_avg = 0;
 	int fast_birthday_index = -1;
 
-	while (option != 4)
+	while (!exit)
 	{
+		cout << "원하는 옵션을 선택하세요. \n";
+		cout << "1. 학생 정보 출력 2. 평균 나이 계산 3. 가장 빠른 생일 계산 4. 프로그램 종료\n";
+		cin >> option;
+
 		switch(option){
 		case 1 : 
 			//학생 정보 출력
@@ -47,14 +49,15 @@ int main() {
 			fast_birthday_index = CalBirthday(info, student_num, 3);
 			cout << "가장 빠른 생일은 " << info[fast_birthday_index][2] << "입니다. \n";
 			break;
+		case 4 : 
+			//exit
+			cout << "프로그램을 종료합니다. \n";
+			exit = true;
+			break;
 		}
-		cout << "\n원하는 옵션을 선택하세요. \n";
-		cout << "1. 학생 정보 출력 2. 평균 나이 계산 3. 가장 빠른 생일 계산 4. 프로그램 종료\n";
-		cin >> option;
 	}
 
 
-	cout << "프로그램을 종료합니다. \n";
 	//동적 배열 해제
 	for (int i = 0; i < student_num; i++)
 	{

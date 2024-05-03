@@ -13,3 +13,8 @@ namespace Calculate
 	float CalAgeAvg(string** arr, int row, int col);
 	int CalBirthday(string** arr, int row, int col);
 }
+
+void arr(int array)
+{
+	
+}

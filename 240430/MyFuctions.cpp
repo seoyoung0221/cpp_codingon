@@ -20,6 +20,7 @@ void InputStudentInfo(string** arr, int row, int col)
 }
 
 //학생 정보 출력
+
 void PrintStudentInfo(string** arr, int row, int col) 
 {
 	cout << "\n학생 정보 출력 \n\n";
@@ -33,6 +34,7 @@ void PrintStudentInfo(string** arr, int row, int col)
 		cout << "\n";
 	}
 }
+
 
 namespace Calculate
 {
