@@ -1,5 +1,5 @@
-//240503
-//·Î¶Ç ÃßÃ· ÇÁ·Î±×·¥
+ï»¿//240503
+//ë¡œë˜ ì¶”ì²¨ í”„ë¡œê·¸ë¨
 
 #include <iostream>
 #include <cstdlib>
@@ -7,29 +7,25 @@
 
 int main() {
 	int randomNumber[6] = {0};
+	int sameNumber = 0;
 	bool exit = true;
 	std::srand(time(NULL));
 
-	randomNumber[0] = std::rand() % 45 + 1;
-
-	while (exit)
-	{
-		randomNumber[1] = std::rand() % 45 + 1;
-		randomNumber[2] = std::rand() % 45 + 1;
-		randomNumber[3] = std::rand() % 45 + 1;
-		randomNumber[4] = std::rand() % 45 + 1;
-		randomNumber[5] = std::rand() % 45 + 1;
-
-		if (randomNumber[0] == randomNumber[1] == randomNumber[2] == randomNumber[3] == randomNumber[4] == randomNumber[5]) {
-			exit = true;
-		}
-		else
-			exit = false;
-
-	}
 	for (int i = 0; i < 6; i++)
 	{
-		std::cout << i + 1 << "¹ø : " << randomNumber[i] << "\n";
+		randomNumber[i] = std::rand() % 45 + 1;
+		for (int j = 0; j < i; j++)
+		{
+			if (randomNumber[j] == randomNumber[i])
+				i--;
+		}
+	}
+
+
+
+	for (int i = 0; i < 6; i++)
+	{
+		std::cout << i + 1 << "ë²ˆ : " << randomNumber[i] << "\n";
 	}
 	return 0;
 }
