@@ -2,6 +2,7 @@
 //string
 #include <iostream>
 #include <string>
+#include "MyFunctions.h"
 
 using namespace std;
 
@@ -29,17 +30,8 @@ int main() {
 	}
 
 	//학생 정보 출력
-	cout << "\n학생 정보 출력 \n\n";
-	cout << "이름\t나이\t생일\n";
+	PrintStudentInfo(info, student_num, 3);
 
-	for (int i = 0; i < student_num; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cout << info[i][j] << "\t";
-		}
-		cout << "\n";
-	}
 
 	//평균 나이 계산
 
@@ -55,7 +47,7 @@ int main() {
 	cout << "평균 나이는 " << age_avg << "입니다. \n\n";
 
 	//가장 빠른 생일 
-	int fast_birthday = INT16_MAX;
+	int fast_birthday = INT32_MAX;
 	int fast_birthday_index = -1;
 
 	for (int i = 0; i < student_num; i++)

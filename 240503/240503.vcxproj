@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a750a062-724f-48db-b8ce-1232ecf81e5e}</ProjectGuid>
-    <RootNamespace>My240430</RootNamespace>
+    <ProjectGuid>{26bf720d-57af-40d4-bac1-affc0eed10f6}</ProjectGuid>
+    <RootNamespace>My240503</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,20 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MyFuctions.cpp" />
-    <ClCompile Include="prac1.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="prac2.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="prac3.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="prac4.cpp" />
+    <ClCompile Include="Myfunc.cpp" />
+    <ClCompile Include="temp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyFunctions.h" />
+    <ClInclude Include="MyFunc.h" />
+    <ClInclude Include="Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
