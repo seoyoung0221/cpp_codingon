@@ -8,7 +8,7 @@
 
 using namespace std;
 
-bool CheckNum(int order);
+bool CheckNum(string order);
 
 int main()
 {
@@ -32,15 +32,18 @@ int main()
     read_file.close();
 
     //사용자 입력 받아오기
-    cout << "원하는 줄의 순서를 입력하세요 : ";
-    int* line_order = new int[lineCnt];
+    cout << "원하는 줄의 순서를 입력하세요. \n";
+    string* line_order = new string[lineCnt];
     int n = 0;
-
     while (true)
     {
+        cout << n + 1 << "번째 줄 : ";
         cin >> line_order[n];
-        if (line_order[n] < lineCnt && CheckNum(line_order[n]))
+
+        if (stoi(line_order[n]) < (lineCnt + 1) && CheckNum(line_order[n]))
+        {
             n++;
+        }
         else
             cout << "다시 입력해주세요 : ";
 
@@ -48,13 +51,8 @@ int main()
             break;
         }
     }
+   
 
-    for (int i = 0; i < lineCnt; i++)
-    {
-        cout << line_order[i] << "\n";
-    }
-
-    /*
     //파일 write
     ofstream write_file("plus_write_file.txt");
 
@@ -62,7 +60,7 @@ int main()
     {
         for (int i = 0; i < 3; i++)
         {
-            switch (line_order[i])
+            switch (stoi(line_order[i]))
             {
                 case 1 :
                     write_file << v[0] << "\n";
@@ -80,25 +78,25 @@ int main()
     }
 
     write_file.close();
-    */
 
     delete[] line_order;
 
 	return 0;
 }
 
-bool CheckNum(int order)
+bool CheckNum(string order)
 {
     //order이 true면 true 반환
     //false면 false 반환
-    if (isdigit('o') != 0)
+
+    for (int i = 0; i < order.length(); i++)
     {
-        cout << "true";
-        return true;
+        if (isdigit(order[i]) == 0)
+        {
+            cout << "false";
+            return false;
+        }
     }
-    else
-    {   
-        cout << "false";
-        return false;
-    }
+
+    return true;
 }
