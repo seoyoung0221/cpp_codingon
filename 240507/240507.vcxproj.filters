@@ -18,5 +18,11 @@
     <ClCompile Include="prac0.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="plus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prac1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

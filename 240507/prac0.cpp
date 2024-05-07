@@ -17,13 +17,23 @@ int main()
 
     if (read_file.is_open())
     {
+        string line;
+        int lineCnt = 0;
+        //EOF
+        while (getline(read_file, line))
+        {
+            lineCnt++;
+            v.push_back(line);
+        }
+
+        /*
         for (int i = 0; i < 3; i++)
         {
             //라인 받아오기
             string line;
             getline(read_file, line);
             v.push_back(line);
-        }
+        }*/
     }
     //hello 파일 닫기
     read_file.close();
