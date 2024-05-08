@@ -51,7 +51,6 @@ int main()
             break;
         }
     }
-   
 
     //ÆÄÀÏ write
     ofstream write_file("plus_write_file.txt");

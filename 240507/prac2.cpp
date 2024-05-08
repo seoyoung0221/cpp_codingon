@@ -10,6 +10,8 @@
 using namespace std;
 
 bool CompareString(string my_info, string user_info);
+int LogIn(string** array);
+
 bool FindMem(string name);
 void AddTel(string name);
 void EditTel(string name);
@@ -21,10 +23,11 @@ void EditTel(string name);
 */
 
 int main() {
-	string name;
-	string password;
 	int memRow = 0; // 회원수 = 배열의 ROW
 	int memCol = 2;
+	int option = 0; // 시작 옵션
+	int mem_index = -1;
+	bool quit = false;
 
 	//파일 읽어오기
 	ifstream read_file("member.txt");
@@ -51,6 +54,15 @@ int main() {
 	{
 		member[i] = new string[memCol];
 	}
+
+	// 배열 초기화
+	for (int i = 0; i < memRow; i++)
+	{
+		for (int j = 0; j < memCol; j++)
+		{
+			member[i][j] = '0';
+		}
+	}
 	read_file.clear();
 	read_file.seekg(0, ios::beg);
 
@@ -68,13 +80,59 @@ int main() {
 	}
 
 	read_file.close();
-	/*
-	int option = 0;
-	cout << "원하시는 기능을 고르세요. \n";
-	cout << "1. 로그인하기 2. 회원가입하기 3. 프로그램 종료 \n";
-	cin >> option;
-	*/
 	
+	cout << "원하시는 기능을 고르세요. \n";
+	cout << "1. 로그인하고 전화번호 입력(수정) 2. 회원가입하기 3. 프로그램 종료 \n";
+	cin >> option;
+	while (true) {
+		switch (option)
+		{
+		case 1:
+			mem_index = LogIn(member);
+			//member_tel에 사용자 있는 지 확인
+			if (FindMem(member[mem_index][0]) == true) {
+				//전화번호 수정
+				EditTel(member[mem_index][0]);
+			}
+			else {
+				//전화번호 추가
+				AddTel(member[mem_index][0]);
+			}
+		case 2:
+		case 3:
+			break;
+		}
+	}
+	
+
+	//동적 배열 해제
+	for (int i = 0; i < memCol; i++)
+	{
+		delete[] member[i];
+	}
+
+	delete[] member;
+
+	return 0;
+}
+
+// 문자열 비교하는 함수
+bool CompareString(string my_info, string user_info)
+{
+	//my_info : 내가 가지고 있는 정보, user_info : 사용자가 전해준 정보
+	if (my_info.compare(user_info) == 0)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+// 로그인 함수
+int LogIn(string** array) {
+	string name, password;
+	int Row = sizeof(array) / sizeof(array[0]);
+	int Col = sizeof(array[0]) / sizeof(array[0][0]);
 	int same_name = 0;
 	int index = -1;
 
@@ -83,10 +141,10 @@ int main() {
 	while (same_name == 0)
 	{
 		cin >> name;
-		
-		for (int i = 0; i < 3; i++)
+
+		for (int i = 0; i < Row; i++)
 		{
-			if (CompareString(member[i][0], name)) {
+			if (CompareString(array[i][0], name)) {
 				same_name = 1;
 				index = i;
 				break;
@@ -104,7 +162,7 @@ int main() {
 	{
 		cin >> password;
 
-		if (CompareString(member[index][1], password))
+		if (CompareString(array[index][1], password))
 		{
 			cout << "로그인에 성공했습니다. \n\n";
 			break;
@@ -115,35 +173,7 @@ int main() {
 		}
 	}
 
-	//member_tel에 사용자 있는 지 확인
-	if (FindMem(member[index][0]) == true) {
-		//전화번호 수정
-		EditTel(member[index][0]);
-	}
-	else {
-		//전화번호 추가
-		AddTel(member[index][0]);
-	}
-
-	//동적 배열 해제
-	for (int i = 0; i < memCol; i++)
-	{
-		delete[] member[i];
-	}
-
-	return 0;
-}
-
-// 문자열 비교하는 함수
-bool CompareString(string my_info, string user_info)
-{
-	//my_info : 내가 가지고 있는 정보, user_info : 사용자가 전해준 정보
-	if (my_info.compare(user_info) == 0)
-	{
-		return true;
-	}
-
-	return false;
+	return index;
 }
 
 // member_tel에 이름이 존재하는지 확인
@@ -190,8 +220,8 @@ void AddTel(string name)
 void EditTel(string name) {
 	string file_name, file_tel;
 	string tel;
-	int memRow = 0; // 회원수 = 배열의 ROW
-	int memCol = 2; // 이름, 전화번호
+	int Row = 0; // 회원수 = 배열의 ROW
+	int Col = 2; // 이름, 전화번호
 
 	//파일 읽어오기
 	ifstream read_file("member_tel.txt");
@@ -201,11 +231,11 @@ void EditTel(string name) {
 	// 회원 수 파악
 	while (getline(read_file, line))
 	{
-		memRow++;
+		Row++;
 	}
 
 	// 배열 선언
-	string* member = new string [memRow];
+	string* member = new string [Row];
 
 	read_file.clear();
 	read_file.seekg(0, ios::beg);
@@ -229,18 +259,14 @@ void EditTel(string name) {
 
 	ofstream write_file("member_tel.txt");
 
-	for (int i = 0; i < memRow; i++)
+	for (int i = 0; i < Row; i++)
 	{
 		write_file << member[i] << "\n";
 	}
 
 	write_file.close();
 
-
-
-
 	//동적 배열 해제
 	delete[] member;
-
-
 }
+
