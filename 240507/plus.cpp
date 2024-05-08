@@ -97,6 +97,5 @@ bool CheckNum(string order)
             return false;
         }
     }
-
     return true;
 }

@@ -51,7 +51,7 @@ int main() {
 		{
 			for (int j = 0; j < 2; j++)
 			{
-				write_file << member[i][j] << "\t";
+				write_file << member[i][j] << " ";
 			}
 			write_file << "\n";
 		}
@@ -78,11 +78,6 @@ int main() {
 	}
 
 	read_file.close();
-
-	for (int i = 0; i < lineCnt; i++)
-	{
-		cout << v[i] << "\n";
-	}
 
 	return 0;
 }
