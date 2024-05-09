@@ -7,6 +7,9 @@
 #include <vector>
 #include <sstream>
 
+#include "Login_Func.h"
+
+
 using namespace std;
 
 bool CompareString(string my_info, string user_info);
@@ -82,7 +85,7 @@ int main() {
 	read_file.close();
 	
 	cout << "원하시는 기능을 고르세요. \n";
-	cout << "1. 로그인하고 전화번호 입력(수정) 2. 회원가입하기 3. 프로그램 종료 \n";
+	cout << "1. 로그인하고 전화번호 입력(수정) 2. 회원가입하기 3. 비밀번호수정 4. 프로그램 종료 \n";
 	cin >> option;
 	while (true) {
 		switch (option)
@@ -100,6 +103,7 @@ int main() {
 			}
 		case 2:
 		case 3:
+		case 4:
 			break;
 		}
 	}
