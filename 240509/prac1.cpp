@@ -17,7 +17,7 @@ int main() {
 
 	cout << "가로, 세로를 입력하세요 : ";
 	cin >> rec.width >> rec.height;
-
+	
 	cout << "넓이는 " << rec.width * rec.height << "입니다.";
 
 	return 0;
