@@ -31,8 +31,10 @@ int main() {
 	cout << "³ĞÀÌ : " << Rec1.area() << "\n";
 
 	Rectangle Rec_copy1(Rec1);
-	Rectangle Rec_copy2 = Rec1;
+	//Rectangle Rec_copy2 = Rec1;
 
+
+	//3
 	Rectangle Rec2(30, 40);
 	cout << "º¹»ç Àü ³ĞÀÌ : " << Rec2.area() << "\n";
 	Rec2 = Rec_copy1;
