@@ -8,15 +8,22 @@ using std::cin;
 
 class Rectangle {
 public:
-	Rectangle(int width, int height) : r_width(width), r_height(height){}
-	int area()
+	Rectangle(int width, int height) : m_width(width), m_height(height){}
+	float area()
 	{
-		return r_width * r_height;
+		return m_width * m_height;
+	}
+	//복사 생성자
+	Rectangle(const Rectangle& Rect_copy)
+	{
+		// 멤버 변수 복사
+		m_width = Rect_copy.m_width;
+		m_height = Rect_copy.m_height;
 	}
 
 private:
-	int r_width{ 0 };
-	int r_height{ 0 };
+	int m_width{ 0 };
+	int m_height{ 0 };
 
 };
 
