@@ -33,6 +33,9 @@
     <ClCompile Include="03_pw_check_john.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bluetooth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login_Func.h">

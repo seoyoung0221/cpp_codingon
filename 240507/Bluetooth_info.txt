@@ -1,0 +1,6 @@
+[MAC-EC:1B:BD:AF:35:11, Name ?InBodyBand1, RSSI - 78]
+[MAC-EC:1B:BD:53:40:1B, Name ?InBodyBand2, RSSI - 52]
+[MAC-EC:1B:BD:2F:66:2C, Name ?InBodyBand3, RSSI - 14]
+[MAC-EC:1B:BD:AC:BB:55, Name ?InBodyBand3, RSSI - 36]
+[MAC-EC:1B:BD:41:40:18, Name ?InBodyBand2, RSSI - 74]
+[MAC-EC:1B:BD:3D:C1:26, Name ?InBodyBand3, RSSI - 61]
