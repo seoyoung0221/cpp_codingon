@@ -12,6 +12,16 @@ protected:
 	virtual void draw() = 0;
 };
 
+class Circle : public Shape
+{
+public:
+	Circle() {}
+	void draw() override
+	{
+		cout << "원을 그립니다. \n";
+	}
+};
+
 class Rect : public Shape
 {
 public:
@@ -34,6 +44,9 @@ public:
 
 int main()
 {
+	Circle cir;
+	cir.draw();
+
 	Rect rect;
 	rect.draw();
 
