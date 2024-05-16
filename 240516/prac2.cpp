@@ -25,6 +25,7 @@ public :
 		return m_name;
 	}
 
+private:
 	int m_price;
 	string m_name;
 	string m_company;
