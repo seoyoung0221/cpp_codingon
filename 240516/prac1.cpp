@@ -9,7 +9,7 @@ using namespace std;
 
 class Shape {
 public :
-	Shape() {};
+	Shape() {}
 	Shape(float width, int lineNum)
 	{
 		this->m_width = width;
