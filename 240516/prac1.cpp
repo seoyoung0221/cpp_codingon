@@ -44,6 +44,10 @@ public :
 	{
 		cout << "»ç°¢ÇüÀÇ ³ÐÀÌ´Â " << this->m_width * this->m_height << "\n";
 	}
+	void printInfo(int w, int h)
+	{
+		cout << "»ç°¢ÇüÀÇ ³ÐÀÌ´Â " << w * h << "\n";
+	}
 
 private: 
 	float m_width;
@@ -72,11 +76,15 @@ public :
 
 	void printInfo()
 	{
-		cout << "»ï°¢ÇüÀÇ ³ÐÀÌ´Â " << this->m_width * this->m_height << "\n";
+		cout << "»ï°¢ÇüÀÇ ³ÐÀÌ´Â " << this->m_width * this->m_height / 2<< "\n";
 	}
 
+	void printInfo(int w, int h)
+	{
+		cout << "»ï°¢ÇüÀÇ ³ÐÀÌ´Â " << w * h /2 << "\n";
+	}
 private:
-	float m_width;
+	//float m_width;
 	float m_height;
 };
 
@@ -90,6 +98,7 @@ int main() {
 
 	Triangle triangle(tri_width, tri_height);
 	triangle.printInfo();
+	triangle.printInfo(2, 5);
 	//triangle.area();
 
 	cout << "\n";
