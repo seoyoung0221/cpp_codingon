@@ -20,7 +20,7 @@ public:
 	Student(string name) {
 		this->name = name;
 	}
-	void intro() {
+	void intro() override {
 		cout << name << "학생입니다." << endl;
 	}
 	void learn() {
@@ -36,7 +36,7 @@ public:
 		this->name = name;
 	}
 
-	void intro() {
+	void intro() override {
 		cout << name << "선생입니다." << endl;
 	}
 
