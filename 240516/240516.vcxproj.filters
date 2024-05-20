@@ -24,5 +24,8 @@
     <ClCompile Include="prac2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="prac2_virtualFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
