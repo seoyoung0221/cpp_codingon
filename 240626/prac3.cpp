@@ -1,27 +1,26 @@
 #include <iostream>
 #include <thread>
 #include <vector>
-#include <mutex>
+#include <atomic>
 
 using namespace std;
-mutex mtx;
 
 class BankAccount
 {
 public:
 	void deposit(int amount)
 	{
-		this->balance += amount;
+		balance.fetch_add(amount);
 		cout << "ÀÜ¾× : " << balance << endl;
 	};
 	void withdraw(int amount)
 	{
-		this->balance -= amount;
+		balance.fetch_add(-amount);
 		cout << "ÀÜ¾× : " << balance << endl;
 	};
 
 private:
-	int balance = 1000;
+	atomic<int> balance =1000;
 };
 
 // count È½¼ö¸¸Å­ amount¸¦ ÀÔ±Ý(deposit)
@@ -47,19 +46,15 @@ void deposit_iter(BankAccount& ba, int amount, int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		mtx.lock();
 		ba.deposit(amount);
-		mtx.unlock();
 	}
 }
 
 void withdraw_iter(BankAccount& ba, int amount, int count)
-{	
+{
 	for (int i = 0; i < count; i++)
 	{
-		mtx.lock();
 		ba.withdraw(count);
-		mtx.unlock();
 	}
 
 }
