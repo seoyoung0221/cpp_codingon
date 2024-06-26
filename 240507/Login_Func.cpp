@@ -1,8 +1,6 @@
 
 #include "Login_Func.h"
 
-
-
 bool checkPwCombi(string str)
 {
 	bool pass = false;

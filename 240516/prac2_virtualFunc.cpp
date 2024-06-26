@@ -57,6 +57,8 @@ int main() {
 	Student student1(names[1]);
 	Student student2(names[2]);
 
+	//Teacher* teacher = new Teacher(names[0]); -> 동적 바인딩
+
 	/*pList에 할당하는 코드 추가*/
 	pList[0] = &teacher;
 	pList[1] = &student1; 
